@@ -8,4 +8,3 @@
 
 3. Installing mongodb helm chart with 3 replicatset as statefulset
 `helm install momgodb -f test-mongodb-values.yaml bitnami/mongodb`
-:EMOJICODE:
