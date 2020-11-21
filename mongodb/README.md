@@ -8,3 +8,10 @@
 
 3. Installing mongodb helm chart with 3 replicatset as statefulset
 `helm install mongodb -f test-mongodb-values.yaml bitnami/mongodb`
+
+4. Installing mongodb-express for UI
+`kubectl apply -f test-mongo-express.yaml`
+
+5. installing Nginx-Ingress-controller helm chart
+```helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
+helm repo add stable https://charts.helm.sh/stable``` 
