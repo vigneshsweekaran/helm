@@ -13,5 +13,7 @@
 `kubectl apply -f test-mongo-express.yaml`
 
 5. installing Nginx-Ingress-controller helm chart
-```helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
-helm repo add stable https://charts.helm.sh/stable``` 
+```
+helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
+helm repo add stable https://charts.helm.sh/stable
+```
