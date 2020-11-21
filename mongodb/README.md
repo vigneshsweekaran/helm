@@ -7,4 +7,4 @@
 `helm search repo bitnami/mongodb`
 
 3. Installing mongodb helm chart with 3 replicatset as statefulset
-`helm install momgodb -f test-mongodb-values.yaml bitnami/mongodb`
+`helm install mongodb -f test-mongodb-values.yaml bitnami/mongodb`
