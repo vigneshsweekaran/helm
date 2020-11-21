@@ -1,4 +1,4 @@
-# Creating 3 mongo db pods as statefultset using Hemchart
+# Creating 3 mongo db pods as statefultset using Helmchart
 
 1. Add the mongo db helm repo
 `helm repo add bitnami https://charts.bitnami.com/bitnami`
