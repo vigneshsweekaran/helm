@@ -2,9 +2,10 @@
 
 * Add the stable helm repo
 ```
-helm repo add stable https://charts.helm.sh/stable
+helm repo add jenkins https://charts.jenkins.io
+helm repo update
 ```
 * Installing jenkins helm chart
 ```
-helm install jenkins -f values.yaml stable/jenkins
+helm install jenkins -f values.yaml jenkins/jenkins
 ```
