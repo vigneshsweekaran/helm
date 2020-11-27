@@ -15,6 +15,6 @@ if [[ ! `kubectl get ns | awk -v namespace=$NAMESPACE '{if($1 == namespace) prin
 fi
 
 # Install helm chart
-if [[ ! `helm list -n $NAMESPACE | awk -v releaseName=$RELEASE_NAME '{if($1 == $RELEASE_NAME) print "found";}'` == "found" ]]; then
-    helm install $RELEASE_NAME -f values.yaml jenkins/jenkins
+if [[ ! `helm list -n $NAMESPACE | awk -v releaseName=$RELEASE_NAME '{if($1 == releaseName) print "found";}'` == "found" ]]; then
+    helm install $RELEASE_NAME -f values.yaml jenkins/jenkins -n $NAMESPACE
 fi
