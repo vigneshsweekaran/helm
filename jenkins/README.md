@@ -9,4 +9,6 @@
   ```
   helm install jenkins -f values.yaml jenkins/jenkins
   ```
-## Official documentaion https://github.com/jenkinsci/helm-charts/blob/main/charts/jenkins/README.md
+## Official documentaion 
+
+  https://github.com/jenkinsci/helm-charts/blob/main/charts/jenkins/README.md
