@@ -10,11 +10,11 @@ if [[ ! `helm repo list | awk '{if($1 == "jenkins") print "found";}'` == "found"
 fi
 
 # Creating namespace for jenkins
-if [[ ! `kubectl get ns | awk '{if($1 == $NAMESPACE) print "found";}'` == "found" ]]; then
+if [[ ! `kubectl get ns | awk -v namespace=$NAMESPACE '{if($1 == namespace) print "found";}'` == "found" ]]; then
     kubectl create ns $NAMESPACE
 fi
 
 # Install helm chart
-if [[ ! `helm list -n $NAMESPACE | awk '{if($1 == $RELEASE_NAME) print "found";}'` == "found" ]]; then
+if [[ ! `helm list -n $NAMESPACE | awk -v releaseName=$RELEASE_NAME '{if($1 == $RELEASE_NAME) print "found";}'` == "found" ]]; then
     helm install $RELEASE_NAME -f values.yaml jenkins/jenkins
 fi
