@@ -318,7 +318,7 @@ persistence:
   ##
   storageClass: "glusterfs"
   annotations: {}
-  accessMode: "ReadWriteOnce"
+  accessMode: "ReadWriteMany"
   size: "8Gi"
   volumes:
   #  - name: nothing
