@@ -3,6 +3,12 @@
 NAMESPACE="jenkins"
 RELEASE_NAME="jenkins"
 
+# Uninstalling jenkins helm release Release
+if [[ $* == *uninstall* ]]; then
+    helm uninstall $RELEASE_NAME -n $NAMESPACE
+    exit 0
+fi
+
 # Install helm version 3 if not installed
 helm version
 if [[ $? != 0 ]]; then
@@ -25,7 +31,7 @@ if [[ ! `kubectl get sc | awk '{if($1 == "glusterfs") print "found";}'` == "foun
     kubectl create -f storage-class-glusterfs.yaml
 fi
 
-# Creating glusterfs persistent volume cliam foe jenkins pod
+# Creating glusterfs persistent volume claim for jenkins pod
 if [[ ! `kubectl get pvc | awk '{if($1 == "jenkins") print "found";}'` == "found" ]]; then
     kubectl create -f pvc-glusterfs.yaml
 fi
@@ -33,9 +39,4 @@ fi
 # Install helm chart
 if [[ ! `helm list -n $NAMESPACE | awk -v releaseName=$RELEASE_NAME '{if($1 == releaseName) print "found";}'` == "found" ]]; then
     helm install $RELEASE_NAME -f values.yaml jenkins/jenkins -n $NAMESPACE
-fi
-
-# Uninstalling jenkins helm release Release
-if [[ $* == *uninstall* ]]; then
-    helm uninstall $RELEASE_NAME -n $NAMESPACE
 fi
