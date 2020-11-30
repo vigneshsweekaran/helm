@@ -38,7 +38,13 @@ controller:
     - configuration-as-code:1.46
 
   # List of plugins to install in addition to those listed in controller.installPlugins
-  additionalPlugins: []
+  additionalPlugins:
+    - job-dsl:1.77
+    - slack:2.44
+    - thinBackup:1.10
+    - ssh-agent:1.20
+    - ssh-agent:2.6.1
+    - ssh-slaves:1.31.2
 
   # Configures if plugins bundled with `controller.image` should be overwritten with the values of 'controller.installPlugins' on upgrade or redeployment.
   overwritePluginsFromImage: true
@@ -294,7 +300,7 @@ additionalAgents: {}
 #    TTYEnabled: true
 
 persistence:
-  enabled: false
+  enabled: true
   ## A manually managed Persistent Volume and Claim
   ## Requires persistence.enabled: true
   ## If defined, PVC must be created manually before volume will be bound
@@ -306,7 +312,7 @@ persistence:
   ##   set, choosing the default provisioner.  (gp2 on AWS, standard on
   ##   GKE, AWS & OpenStack)
   ##
-  storageClass:
+  storageClass: glusterfs
   annotations: {}
   accessMode: "ReadWriteOnce"
   size: "8Gi"
