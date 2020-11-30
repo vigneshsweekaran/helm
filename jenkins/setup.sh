@@ -20,6 +20,11 @@ if [[ ! `kubectl get ns | awk -v namespace=$NAMESPACE '{if($1 == namespace) prin
     kubectl create ns $NAMESPACE
 fi
 
+# Creating glusterfs stotageclass
+if [[ ! `kubectl get sc | awk '{if($1 == "glusterfs") print "found";}'` == "found" ]]; then
+    kubectl create -f storage-class-glusterfs.yaml
+fi
+
 # Install helm chart
 if [[ ! `helm list -n $NAMESPACE | awk -v releaseName=$RELEASE_NAME '{if($1 == releaseName) print "found";}'` == "found" ]]; then
     helm install $RELEASE_NAME -f values.yaml jenkins/jenkins -n $NAMESPACE
