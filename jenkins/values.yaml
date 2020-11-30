@@ -2,7 +2,7 @@ controller:
   # Used for label app.kubernetes.io/component
   componentName: "jenkins-controller"
   image: "jenkins/jenkins"
-  tag: "lts"
+  tag: "2.249.3"
   imagePullPolicy: "Always"
   numExecutors: 5
   adminUser: "admin"
