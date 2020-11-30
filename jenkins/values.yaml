@@ -14,7 +14,7 @@ controller:
       cpu: "500m"
       memory: "1024Mi"
     limits:
-      cpu: "100m"
+      cpu: "1000m"
       memory: "1536Mi"
   servicePort: 8080
   targetPort: 8080
