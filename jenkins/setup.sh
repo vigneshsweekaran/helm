@@ -25,6 +25,11 @@ if [[ ! `kubectl get sc | awk '{if($1 == "glusterfs") print "found";}'` == "foun
     kubectl create -f storage-class-glusterfs.yaml
 fi
 
+# Creating glusterfs persistent volume cliam foe jenkins pod
+if [[ ! `kubectl get pvc | awk '{if($1 == "jenkins") print "found";}'` == "found" ]]; then
+    kubectl create -f pvc-glusterfs.yaml
+fi
+
 # Install helm chart
 if [[ ! `helm list -n $NAMESPACE | awk -v releaseName=$RELEASE_NAME '{if($1 == releaseName) print "found";}'` == "found" ]]; then
     helm install $RELEASE_NAME -f values.yaml jenkins/jenkins -n $NAMESPACE
