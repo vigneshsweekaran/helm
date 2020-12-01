@@ -14,15 +14,23 @@ All dependecies are taken care in this shell scipt, like creating namespace, ins
 ```
 
 # Manual Way
+### Creating namespace for jenkins
+```
+kubectl create ns jenkins
+```
 ### Add the stable helm repo
-  ```
-  helm repo add jenkins https://charts.jenkins.io
-  helm repo update
-  ```
+```
+helm repo add jenkins https://charts.jenkins.io
+helm repo update
+```
+### Creating glusterfs storageclass, for this glusterfs and heketi cluster should be deployed
+```
+kubectl create -f storage-class-glusterfs.yaml
+```
 ### Installing jenkins helm chart
-  ```
-  helm install jenkins -f values.yaml jenkins/jenkins
-  ```
+```
+helm install jenkins -f values.yaml jenkins/jenkins -n jenkins
+```
 
 ## Official documentaion 
 
