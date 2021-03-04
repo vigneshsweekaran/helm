@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  namespace: {{ .Release.Namespace }}
+  name: {{ .Release.Name }}
+  labels:
+    name: {{ .Release.Name }}
+    app: {{ .Release.Name }}-app
+spec:
+  containers:
+    - name:  kubectl
+      image: "{{ .Values.global.image.name }}:{{ .Values.global.image.tag }}"
+      imagePullPolicy: {{ .Values.global.imagePullPolicy }}
+      command: ["sleep"]
+      args: ["infinity"]

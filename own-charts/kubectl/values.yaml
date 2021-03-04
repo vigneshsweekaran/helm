@@ -1,0 +1,5 @@
+global:
+    image:
+        name: vigneshsweekaran/kubectl
+        tag: latest
+    imagePullPolicy: Always
