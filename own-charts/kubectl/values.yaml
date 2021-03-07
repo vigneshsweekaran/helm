@@ -1,5 +1,8 @@
 global:
-    image:
-        name: vigneshsweekaran/kubectl
-        tag: latest
-    imagePullPolicy: Always
+  image:
+    name: vigneshsweekaran/kubectl
+    tag: latest
+  imagePullPolicy: Always
+  rbac:
+    enabled: true
+  automountServiceAccountToken: true

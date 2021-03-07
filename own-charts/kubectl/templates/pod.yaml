@@ -11,5 +11,8 @@ spec:
     - name:  kubectl
       image: "{{ .Values.global.image.name }}:{{ .Values.global.image.tag }}"
       imagePullPolicy: {{ .Values.global.imagePullPolicy }}
+      {{- if .Values.global.rbac.enabled }}
+      serviceAccountName: {{ .Release.Name }}
+	  {{- end }}
       command: ["sleep"]
       args: ["infinity"]
