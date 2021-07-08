@@ -26,7 +26,6 @@ metadata:
 subjects:
 - kind: ServiceAccount
   name: {{ .Release.Name }}
-  apiGroup: rbac.authorization.k8s.io
   namespace: {{ .Release.Namespace }}
 roleRef:
   kind: Role
