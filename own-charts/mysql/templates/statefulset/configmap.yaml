@@ -1,0 +1,18 @@
+{{- if (eq "statefulset" .Values.global.deploymentType) }}
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  namespace: {{ .Release.Namespace }}
+  name: {{ .Release.Name }}
+  labels:
+    app: mysql
+data:
+  primary.cnf: |
+    # Apply this config only on the primary.
+    [mysqld]
+    log-bin    
+  replica.cnf: |
+    # Apply this config only on replicas.
+    [mysqld]
+    super-read-only    
+{{- end }}

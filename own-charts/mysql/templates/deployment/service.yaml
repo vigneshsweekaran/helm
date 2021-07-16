@@ -1,0 +1,12 @@
+{{- if (eq "deployment" .Values.global.deploymentType) }}
+apiVersion: v1
+kind: Service
+metadata:
+  namespace: {{ .Release.Namespace }}
+  name: {{ .Release.Name }}
+spec:
+  ports:
+  - port: 3306
+  selector:
+    app: mysql
+{{- end }}

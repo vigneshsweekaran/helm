@@ -1,0 +1,27 @@
+{{- if (eq "deployment" .Values.global.deploymentType) }}
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: {{ .Release.Namespace }}
+  name: {{ .Release.Name }}
+spec:
+  selector:
+    matchLabels:
+      app: mysql
+  template:
+    metadata:
+      labels:
+        app: mysql
+    spec:
+      containers:
+      - image: "{{ .Values.global.image.name }}:{{ .Values.global.image.tag }}"
+        name: mysql
+        envFrom:
+        - secretRef:
+            name: mysql
+        - configMapRef:
+            name: mysql
+        ports:
+        - containerPort: 3306
+          name: mysql
+{{- end }}

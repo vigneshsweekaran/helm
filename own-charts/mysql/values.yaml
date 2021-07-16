@@ -1,0 +1,12 @@
+global:
+  image:
+    name: mysql
+    tag: 5.7
+  ## @param deploymentType Mysql databse deployment type (`deployment` or `statefulset`)
+  ##  
+  deploymentType: deployment
+
+deployment:
+
+
+statefulset:
