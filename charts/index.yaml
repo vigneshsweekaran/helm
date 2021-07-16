@@ -3,11 +3,22 @@ entries:
   kubectl:
   - apiVersion: v2
     appVersion: 0.0.1
-    created: "2021-03-29T21:44:12.547747307+05:30"
+    created: "2021-07-16T19:05:16.459115018+05:30"
     description: Helm chart for running kubectl docker container
     digest: 21b7ba54f56f87f9fbe916cfb4e3905a9d52364a5ef2458b70f7ab6759d76450
     name: kubectl
     urls:
-    - https://vigneshsweekaran.github.io/helm/charts/kubectl-0.0.1.tgz
+    - https://devopspilot.com/helm/charts/kubectl-0.0.1.tgz
     version: 0.0.1
-generated: "2021-03-29T21:44:12.546625489+05:30"
+  voting-app:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2021-07-16T19:05:16.461899721+05:30"
+    description: A Helm chart for Kubernetes
+    digest: cf3c37f1b79d88d7bf8cea1f677c6ac4bfcc4c37f6856e392cf54d5b6e486c5f
+    name: voting-app
+    type: application
+    urls:
+    - https://devopspilot.com/helm/charts/voting-app-0.1.1.tgz
+    version: 0.1.1
+generated: "2021-07-16T19:05:16.400358465+05:30"
