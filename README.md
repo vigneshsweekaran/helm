@@ -22,4 +22,3 @@ helm repo index --url https://devopspilot.com/helm/charts/ --merge index.yaml .
 After executing the above command the local available charts are added to index.yaml file
 
 Now commit and push the index.yaml file and the helm charts (*.tgz)
-
