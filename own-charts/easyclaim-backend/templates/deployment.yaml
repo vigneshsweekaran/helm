@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: {{ .Release.Namespace }}
+  name: {{ .Release.Name }}
+  labels:
+    name: easyclaim-backend
+spec:
+  replicas: {{ .Values.global.replicas }}
+  selector:
+    matchLabels:
+      name: easyclaim-backend
+  template:
+    metadata:
+      name: {{ .Release.Name }}
+      labels:
+        name: easyclaim-backend
+    spec:
+      containers:
+        - name:  {{ .Release.Name }}
+          image: "{{ .Values.global.image.name }}:{{ .Values.global.image.tag }}"
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
+          volumeMounts:
+          - name: config-volume
+            mountPath: "/config"
+          resources:
+            requests:
+              memory: "300Mi"
+              cpu: "200m"
+            limits:
+              memory: "600Mi"
+              cpu: "400m"
+      volumes:
+      - name: config-volume
+        configMap:
+          name: {{ .Release.Name }}
+          items:
+          - key: application
+            path: application.properties

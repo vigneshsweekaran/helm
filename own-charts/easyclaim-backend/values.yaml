@@ -1,0 +1,14 @@
+global:
+  image:
+    name: vigneshsweekaran/easyclaim-backend:latest
+    tag: latest
+  replicas: 2
+
+service:
+  type: NodePort
+  nodePort: 32012
+
+hpa:
+  minReplicas: 1
+  maxReplicas: 10
+  targetCPUUtilizationPercentage: 50

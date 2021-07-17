@@ -1,0 +1,6 @@
+apiVersion: v2
+name: easyclaim-backend
+version: 1.0.0
+description: Helm chart for deploying Easyclaim backend application
+appVersion: 1.0.0
+

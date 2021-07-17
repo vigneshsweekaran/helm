@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  namespace: {{ .Release.Namespace }}
+  name: {{ .Release.Name }}
+  labels:
+    name: easyclaim-backend
+spec:
+  ports:
+    - port: 8080
+      targetPort: 8080
+      nodePort: {{ .Values.service.nodePort }}
+  selector:
+    name: easyclaim-backend
+  type: {{ .Values.service.type }}

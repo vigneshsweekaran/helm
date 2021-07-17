@@ -4,7 +4,8 @@ This repository serves the helm charts from `charts` directory
 
 # To add the helm repo to the helm client
 ```
-helm repo add mycharts https://devopspilot.com/helm/charts/
+helm repo add devopspilot https://devopspilot.com/helm/charts/
+helm update
 ```
 
 # To push helm charts from local to github hosted helm repo
