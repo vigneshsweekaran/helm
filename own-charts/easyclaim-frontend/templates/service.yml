@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  namespace: {{ .Release.Namespace }}
+  name: {{ .Release.Name }}
+  labels:
+    name: easyclaim-frontend
+spec:
+  ports:
+    - port: 80
+      targetPort: 80
+      nodePort: 32011
+  selector:
+    name: easyclaim-frontend
+  type: NodePort
