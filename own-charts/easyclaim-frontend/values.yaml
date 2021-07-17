@@ -1,12 +1,12 @@
 global:
   image:
-    image: vigneshsweekaran/easyclaim-frontend:32011
+    image: vigneshsweekaran/easyclaim-frontend
     tag: 32011
   replicas: 2
 
 service:
   type: NodePort
-  nodePort: 32012
+  nodePort: 32011
 
 hpa:
   minReplicas: 1

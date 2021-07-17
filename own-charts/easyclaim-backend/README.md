@@ -28,7 +28,7 @@ Above command will deploy easyclaim-backend application on the Kubernetes cluste
 
 ## Uninstalling the Chart
 
-To uninstall/delete the `mysql` deployment:
+To uninstall/delete the `myeasyclaim-backendsql` deployment:
 
 ```bash
 helm delete easyclaim-backend

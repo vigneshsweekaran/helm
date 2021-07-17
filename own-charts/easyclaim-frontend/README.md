@@ -1,8 +1,8 @@
-# Easyclaim Backend application
+# Easyclaim Frontend application
 
 ## Introduction
 
-This chart is used to deploy the Easyclaim backend application as deployment type in kubernetes cluster.
+This chart is used to deploy the Easyclaim frontend application as deployment type in kubernetes cluster.
 
 ## Prerequisites
 
@@ -19,19 +19,21 @@ helm update
 ## Installing the Chart
 
 ```bash
-helm install easyclaim-backend devopspilot/easyclaim-backend
+helm install easyclaim-frontend devopspilot/easyclaim-frontend
 ```
 
-Above command will deploy easyclaim-backend application on the Kubernetes cluster as deployment type with default configuration. The [Parameters](#parameters) section lists the parameters that can be configured during installation.
+Above command will deploy easyclaim-frontend application on the Kubernetes cluster as deployment type with default configuration.
+
+The [Parameters](#parameters) section lists the parameters that can be configured during installation.
 
 > **Tip**: List all releases using `helm list`
 
 ## Uninstalling the Chart
 
-To uninstall/delete the `mysql` deployment:
+To uninstall/delete the `easyclaim-frontend` deployment:
 
 ```bash
-helm delete easyclaim-backend
+helm delete easyclaim-frontend
 ```
 
 The command removes all the Kubernetes components associated with the chart and deletes the release.
@@ -40,11 +42,11 @@ The command removes all the Kubernetes components associated with the chart and 
 
 ### Global parameters
 
-| Name                      | Description                 | Value                                       |
-| ------------------------- | --------------------------- | ------------------------------------------- |
-| `global.image.name`       | Global Docker image name    | `vigneshsweekaran/easyclaim-backend:latest` |
-| `global.image.tag`        | Global Docker image tag     | `latest`                                    |
-| `global.replicas`         | Global Deployment type      | `2`                                         |
+| Name                      | Description                | Value                                        |
+| ------------------------- | -------------------------- | -------------------------------------------- |
+| `global.image.name`       | Global Docker image name   | `vigneshsweekaran/easyclaim-frontend:latest` |
+| `global.image.tag`        | Global Docker image tag    | `latest`                                     |
+| `global.replicas`         | Global Deployment type     | `2`                                          |
 
 <!--- ### Common parameters
 
