@@ -48,6 +48,11 @@ The command removes all the Kubernetes components associated with the chart and 
 | `global.image.tag`        | Global Docker image tag    | `latest`                                     |
 | `global.replicas`         | Global Deployment type     | `2`                                          |
 
+
+### To pass backend url while installing chart
+```bash
+helm install easyclaim-frontend --set configmap.backendUrl=http://35.23.04.7:32012 devopspilot/easyclaim-frontend
+```
 <!--- ### Common parameters
 
 | Name                | Description                                                                                               | Value           |
