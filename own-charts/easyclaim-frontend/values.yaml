@@ -1,6 +1,6 @@
 global:
   image:
-    image: vigneshsweekaran/easyclaim-frontend
+    name: vigneshsweekaran/easyclaim-frontend
     tag: 32011
   replicas: 2
 
@@ -9,6 +9,6 @@ service:
   nodePort: 32011
 
 hpa:
-  minReplicas: 1
+  minReplicas: 2
   maxReplicas: 10
   targetCPUUtilizationPercentage: 50

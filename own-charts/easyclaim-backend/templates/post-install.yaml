@@ -1,0 +1,28 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: "{{ .Release.Name }}-post-install"
+  labels:
+    name: "{{ .Release.Name }}"
+  annotations:
+    # This is what defines this resource as a hook. Without this line, the
+    # job is considered part of the release.
+    "helm.sh/hook": post-install
+    "helm.sh/hook-weight": "-5"
+    "helm.sh/hook-delete-policy": hook-succeeded
+spec:
+  template:
+    metadata:
+      name: "{{ .Release.Name }}-post-install"
+      labels:
+        name: "{{ .Release.Name }}"
+    spec:
+      restartPolicy: Never
+      containers:
+      - name: post-install-job
+        image: "oraclelinux:8-slim"
+        command: 
+          - /bin/sh
+          - -c
+          - |
+            curl -H "Content-Type: application/json" -X POST -d '{"username":"{{ .Values.postInstall.username }}","password":"{{ .Values.postInstall.password }}","firstName":"{{ .Values.postInstall.firstName }}","lastName":"{{ .Values.postInstall.lastName }}","age":{{ .Values.postInstall.age }},"salary":{{ .Values.postInstall.salary }}}' http://{{ .Release.Name }}:8080/users -v
