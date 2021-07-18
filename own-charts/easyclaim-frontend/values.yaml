@@ -1,7 +1,7 @@
 global:
   image:
     name: vigneshsweekaran/easyclaim-frontend
-    tag: 32011
+    tag: latest
   replicas: 2
 
 service:
@@ -12,3 +12,6 @@ hpa:
   minReplicas: 2
   maxReplicas: 10
   targetCPUUtilizationPercentage: 50
+
+configmap:
+  backendUrl: http://192.68.0.0:32012
