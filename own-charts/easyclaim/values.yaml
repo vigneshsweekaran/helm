@@ -1,28 +1,24 @@
 easyclaim-frontend:
   global:
     image:
-      name: vigneshsweekaran/easyclaim-backend
+      name: vigneshsweekaran/easyclaim-frontend
       tag: latest
     replicas: 2
 
-  nameOverride: frontend
+  nameOverride:
 
   service:
     type: NodePort
-    nodePort: 32012
+    nodePort: 32011
 
   hpa:
     minReplicas: 2
     maxReplicas: 10
     targetCPUUtilizationPercentage: 50
 
-  postInstall:
-    username: test
-    password: test
-    firstName: test
-    lastName: test
-    age: 25
-    salary: 50000
+  configmap:
+    backendUrl: 192.68.0.0
+    backendPort: 32012
 
 easyclaim-backend:
   global:
@@ -30,7 +26,7 @@ easyclaim-backend:
       name: vigneshsweekaran/easyclaim-backend
       tag: latest
     replicas: 2
-    databaseServiceName: mysql
+    databaseServiceName: easyclaim-mysql
   
   nameOverride: backend
 
