@@ -1,8 +1,8 @@
-# Easyclaim Frontend application
+# Easyclaim Backend application
 
 ## Introduction
 
-This chart is used to deploy the Easyclaim frontend application as deployment type in kubernetes cluster.
+This chart is used to deploy the Easyclaim backend application as deployment type in kubernetes cluster.
 
 ## Prerequisites
 
@@ -19,21 +19,19 @@ helm update
 ## Installing the Chart
 
 ```bash
-helm install easyclaim-frontend devopspilot/easyclaim-frontend
+helm install easyclaim-backend devopspilot/easyclaim-backend
 ```
 
-Above command will deploy easyclaim-frontend application on the Kubernetes cluster as deployment type with default configuration.
-
-The [Parameters](#parameters) section lists the parameters that can be configured during installation.
+Above command will deploy easyclaim-backend application on the Kubernetes cluster as deployment type with default configuration. The [Parameters](#parameters) section lists the parameters that can be configured during installation.
 
 > **Tip**: List all releases using `helm list`
 
 ## Uninstalling the Chart
 
-To uninstall/delete the `easyclaim-frontend` deployment:
+To uninstall/delete the `myeasyclaim-backendsql` deployment:
 
 ```bash
-helm delete easyclaim-frontend
+helm delete easyclaim-backend
 ```
 
 The command removes all the Kubernetes components associated with the chart and deletes the release.
@@ -42,17 +40,12 @@ The command removes all the Kubernetes components associated with the chart and 
 
 ### Global parameters
 
-| Name                      | Description                | Value                                        |
-| ------------------------- | -------------------------- | -------------------------------------------- |
-| `global.image.name`       | Global Docker image name   | `vigneshsweekaran/easyclaim-frontend:latest` |
-| `global.image.tag`        | Global Docker image tag    | `latest`                                     |
-| `global.replicas`         | Global Deployment type     | `2`                                          |
+| Name                      | Description                 | Value                                       |
+| ------------------------- | --------------------------- | ------------------------------------------- |
+| `global.image.name`       | Global Docker image name    | `vigneshsweekaran/easyclaim-backend:latest` |
+| `global.image.tag`        | Global Docker image tag     | `latest`                                    |
+| `global.replicas`         | Global Deployment type      | `2`                                         |
 
-
-### To pass backend url while installing chart
-```bash
-helm install easyclaim-frontend --set configmap.backendUrl=35.23.04.7 --set configmap.backendPort=32012 devopspilot/easyclaim-frontend
-```
 <!--- ### Common parameters
 
 | Name                | Description                                                                                               | Value           |

@@ -1,0 +1,12 @@
+dependencies:
+- name: easyclaim-frontend
+  repository: https://devopspilot.com/helm/charts
+  version: 1.0.0
+- name: easyclaim-backend
+  repository: https://devopspilot.com/helm/charts
+  version: 1.0.0
+- name: mysql
+  repository: https://devopspilot.com/helm/charts
+  version: 1.0.0
+digest: sha256:1d15d64385b293a9065487a5d79c42d64c31edb1c11e0001bd759a2e833a11b4
+generated: "2021-07-21T09:05:56.132840261+05:30"

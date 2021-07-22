@@ -1,9 +1,10 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: "{{ .Release.Name }}-post-install"
+  namespace: {{ .Release.Namespace }}
+  name: {{ include "easyclaim-backend.fullname" . }}-post-install
   labels:
-    name: "{{ .Release.Name }}"
+    {{- include "easyclaim-backend.labels" . | nindent 4 }}
   annotations:
     # This is what defines this resource as a hook. Without this line, the
     # job is considered part of the release.
@@ -13,7 +14,7 @@ metadata:
 spec:
   template:
     metadata:
-      name: "{{ .Release.Name }}-post-install"
+      name: "{{ include "easyclaim-backend.fullname" . }}-post-install"
       labels:
         name: "{{ .Release.Name }}"
     spec:
@@ -25,4 +26,4 @@ spec:
           - /bin/sh
           - -c
           - |
-            curl -H "Content-Type: application/json" -X POST -d '{"username":"{{ .Values.postInstall.username }}","password":"{{ .Values.postInstall.password }}","firstName":"{{ .Values.postInstall.firstName }}","lastName":"{{ .Values.postInstall.lastName }}","age":{{ .Values.postInstall.age }},"salary":{{ .Values.postInstall.salary }}}' http://{{ .Release.Name }}:8080/users -v
+            curl -H "Content-Type: application/json" -X POST -d '{"username":"{{ .Values.postInstall.username }}","password":"{{ .Values.postInstall.password }}","firstName":"{{ .Values.postInstall.firstName }}","lastName":"{{ .Values.postInstall.lastName }}","age":{{ .Values.postInstall.age }},"salary":{{ .Values.postInstall.salary }}}' http://{{ include "easyclaim-backend.fullname" . }}:8080/users -v

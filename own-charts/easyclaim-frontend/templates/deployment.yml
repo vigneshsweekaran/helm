@@ -2,22 +2,22 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   namespace: {{ .Release.Namespace }}
-  name: {{ .Release.Name }}
+  name: {{ include "easyclaim-frontend.fullname" . }}
   labels:
-    name: easyclaim-frontend
+    {{- include "easyclaim-frontend.labels" . | nindent 4 }}
 spec:
   replicas: {{ .Values.global.replicas }}
   selector:
     matchLabels:
-      name: easyclaim-frontend
+      {{- include "easyclaim-frontend.selectorLabels" . | nindent 6 }}
   template:
     metadata:
-      name: {{ .Release.Name }}
+      name: {{ include "easyclaim-frontend.fullname" . }}
       labels:
-        name: easyclaim-frontend
+        {{- include "easyclaim-frontend.selectorLabels" . | nindent 8 }}
     spec:
       containers:
-        - name:  {{ .Release.Name }}
+        - name:  {{ .Chart.Name }}
           image: "{{ .Values.global.image.name }}:{{ .Values.global.image.tag }}"
           imagePullPolicy: Always
           volumeMounts:
@@ -33,7 +33,7 @@ spec:
       volumes:
       - name: config-volume
         configMap:
-          name: {{ .Release.Name }}
+          name: {{ include "easyclaim-frontend.fullname" . }}
           items:
           - key: config
             path: config.json

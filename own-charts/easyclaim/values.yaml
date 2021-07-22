@@ -1,0 +1,22 @@
+global:
+  image:
+    name: vigneshsweekaran/easyclaim-backend
+    tag: latest
+  replicas: 2
+
+service:
+  type: NodePort
+  nodePort: 32012
+
+hpa:
+  minReplicas: 2
+  maxReplicas: 10
+  targetCPUUtilizationPercentage: 50
+
+postInstall:
+  username: test
+  password: test
+  firstName: test
+  lastName: test
+  age: 25
+  salary: 50000

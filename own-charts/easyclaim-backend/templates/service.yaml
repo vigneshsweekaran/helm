@@ -2,14 +2,14 @@ apiVersion: v1
 kind: Service
 metadata:
   namespace: {{ .Release.Namespace }}
-  name: {{ .Release.Name }}
+  name: {{ include "easyclaim-backend.fullname" . }}
   labels:
-    name: easyclaim-backend
+    {{- include "easyclaim-backend.labels" . | nindent 4 }}
 spec:
   ports:
     - port: 8080
       targetPort: 8080
       nodePort: {{ .Values.service.nodePort }}
   selector:
-    name: easyclaim-backend
+    {{- include "easyclaim-backend.selectorLabels" . | nindent 4 }}
   type: {{ .Values.service.type }}

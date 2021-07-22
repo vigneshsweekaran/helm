@@ -1,11 +1,31 @@
 apiVersion: v1
 entries:
+  easyclaim:
+  - apiVersion: v2
+    appVersion: 1.0.0
+    created: "2021-07-22T23:35:12.389556773+05:30"
+    dependencies:
+    - name: easyclaim-frontend
+      repository: https://devopspilot.com/helm/charts
+      version: 1.0.0
+    - name: easyclaim-backend
+      repository: https://devopspilot.com/helm/charts
+      version: 1.0.0
+    - name: mysql
+      repository: https://devopspilot.com/helm/charts
+      version: 1.0.0
+    description: Helm chart for deploying Easyclaim application
+    digest: fc286b563e5ad4f0d3fb4494d025b9e2681c9cd05ffecafb172a7a95314a514b
+    name: easyclaim
+    urls:
+    - https://devopspilot.com/helm/charts/easyclaim-1.0.0.tgz
+    version: 1.0.0
   easyclaim-backend:
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2021-07-19T00:12:18.088882363+05:30"
+    created: "2021-07-22T23:35:12.394124974+05:30"
     description: Helm chart for deploying Easyclaim backend application
-    digest: 7b55586b4523ab5dc282e3015a3e83596ef28d417d9f1facb553716019abf2e6
+    digest: 6cd98b3b87d60c2e264035441b7b149665533530d66e361ee9e887f3c05e211c
     name: easyclaim-backend
     urls:
     - https://devopspilot.com/helm/charts/easyclaim-backend-1.0.0.tgz
@@ -13,9 +33,9 @@ entries:
   easyclaim-frontend:
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2021-07-19T00:12:18.094187484+05:30"
+    created: "2021-07-22T23:35:12.397734255+05:30"
     description: Helm chart for deploying Easyclaim frontend application
-    digest: f27bb18b0966132eb1d475e82e2235934d611572fe3a89f7e8db9718e1d2f25b
+    digest: c84e02491ec1f305733f6b76fee57411190236ea506c2100b3ab3fb2d7f25747
     name: easyclaim-frontend
     urls:
     - https://devopspilot.com/helm/charts/easyclaim-frontend-1.0.0.tgz
@@ -23,7 +43,7 @@ entries:
   kubectl:
   - apiVersion: v2
     appVersion: 0.0.1
-    created: "2021-07-19T00:12:18.104708555+05:30"
+    created: "2021-07-22T23:35:12.44796658+05:30"
     description: Helm chart for running kubectl docker container
     digest: a04ffbb2a950c2c5bf51b47c586da7c6e935880ede786d1743c0582b492eb163
     name: kubectl
@@ -32,10 +52,10 @@ entries:
     version: 0.0.1
   mysql:
   - apiVersion: v2
-    appVersion: 1.0.o
-    created: "2021-07-19T00:12:18.109943825+05:30"
+    appVersion: 1.0.0
+    created: "2021-07-22T23:35:12.454649452+05:30"
     description: Helm chart for running mysql database
-    digest: b3a46aa7e081ba9dbb1a2b1b23354d4fb692a632413e49d443fa53dcf917a918
+    digest: 94d49b44ba26bf2ab205ef0678825f66690bf843397942f29193eb0b484b3233
     name: mysql
     urls:
     - https://devopspilot.com/helm/charts/mysql-1.0.0.tgz
@@ -43,7 +63,7 @@ entries:
   voting-app:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2021-07-19T00:12:18.112435251+05:30"
+    created: "2021-07-22T23:35:12.45776785+05:30"
     description: A Helm chart for Kubernetes
     digest: cf3c37f1b79d88d7bf8cea1f677c6ac4bfcc4c37f6856e392cf54d5b6e486c5f
     name: voting-app
@@ -51,4 +71,4 @@ entries:
     urls:
     - https://devopspilot.com/helm/charts/voting-app-0.1.1.tgz
     version: 0.1.1
-generated: "2021-07-19T00:12:18.056310177+05:30"
+generated: "2021-07-22T23:35:12.38105159+05:30"

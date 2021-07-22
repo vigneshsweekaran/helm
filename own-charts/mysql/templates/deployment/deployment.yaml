@@ -3,25 +3,27 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   namespace: {{ .Release.Namespace }}
-  name: {{ .Release.Name }}
+  name: {{ include "mysql.fullname" . }}
+  labels:
+    {{- include "mysql.labels" . | nindent 4 }}
 spec:
   selector:
     matchLabels:
-      app: mysql
+      {{- include "mysql.selectorLabels" . | nindent 6 }}
   template:
     metadata:
       labels:
-        app: mysql
+        {{- include "mysql.selectorLabels" . | nindent 8 }}
     spec:
       containers:
       - image: "{{ .Values.global.image.name }}:{{ .Values.global.image.tag }}"
-        name: mysql
+        name: {{ .Chart.Name }}
         envFrom:
         - secretRef:
-            name: mysql
+            name: {{ include "mysql.fullname" . }}
         - configMapRef:
-            name: mysql
+            name: {{ include "mysql.fullname" . }}
         ports:
         - containerPort: 3306
-          name: mysql
+          name: {{ .Chart.Name }}
 {{- end }}
