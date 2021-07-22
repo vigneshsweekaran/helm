@@ -4,6 +4,8 @@ global:
     tag: latest
   replicas: 2
 
+nameOverride:
+
 service:
   type: NodePort
   nodePort: 32011

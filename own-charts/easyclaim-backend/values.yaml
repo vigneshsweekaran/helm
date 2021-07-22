@@ -3,6 +3,9 @@ global:
     name: vigneshsweekaran/easyclaim-backend
     tag: latest
   replicas: 2
+  databaseServiceName: mysql
+
+nameOverride:
 
 service:
   type: NodePort

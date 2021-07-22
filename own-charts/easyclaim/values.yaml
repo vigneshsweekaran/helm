@@ -1,22 +1,69 @@
-global:
-  image:
-    name: vigneshsweekaran/easyclaim-backend
-    tag: latest
-  replicas: 2
+easyclaim-frontend:
+  global:
+    image:
+      name: vigneshsweekaran/easyclaim-backend
+      tag: latest
+    replicas: 2
 
-service:
-  type: NodePort
-  nodePort: 32012
+  nameOverride: frontend
 
-hpa:
-  minReplicas: 2
-  maxReplicas: 10
-  targetCPUUtilizationPercentage: 50
+  service:
+    type: NodePort
+    nodePort: 32012
 
-postInstall:
-  username: test
-  password: test
-  firstName: test
-  lastName: test
-  age: 25
-  salary: 50000
+  hpa:
+    minReplicas: 2
+    maxReplicas: 10
+    targetCPUUtilizationPercentage: 50
+
+  postInstall:
+    username: test
+    password: test
+    firstName: test
+    lastName: test
+    age: 25
+    salary: 50000
+
+easyclaim-backend:
+  global:
+    image:
+      name: vigneshsweekaran/easyclaim-backend
+      tag: latest
+    replicas: 2
+    databaseServiceName: mysql
+  
+  nameOverride: backend
+
+  service:
+    type: NodePort
+    nodePort: 32012
+
+  hpa:
+    minReplicas: 2
+    maxReplicas: 10
+    targetCPUUtilizationPercentage: 50
+
+  postInstall:
+    username: test
+    password: test
+    firstName: test
+    lastName: test
+    age: 25
+    salary: 50000
+
+mysql:
+  global:
+    image:
+      name: mysql
+      tag: 5.7
+    ## @param deploymentType Mysql databse deployment type (`deployment` or `statefulset`)
+    ##  
+    deploymentType: deployment
+
+  nameOverride:
+
+  deployment:
+
+
+  statefulset:
+
