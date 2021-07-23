@@ -6,6 +6,8 @@ global:
   ##  
   deploymentType: deployment
 
+nameOverride: ""
+
 deployment:
 
 
