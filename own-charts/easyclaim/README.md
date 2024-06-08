@@ -13,7 +13,7 @@ This chart is used to deploy the Easyclaim backend application as deployment typ
 
 ```
 helm repo add devopspilot https://devopspilot.com/helm/charts/
-helm update
+helm repo update
 ```
 
 ## Installing the Chart
